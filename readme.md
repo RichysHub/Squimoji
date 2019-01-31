@@ -2,6 +2,7 @@
 
 A collection of emoji, reimagined as squid.
 
+![](/72x72/1f991.png) ![](/72x72/1f60e.png) ![](/72x72/1f344.png) ![](/72x72/1f921.png)
 
 ## Attributions
 
