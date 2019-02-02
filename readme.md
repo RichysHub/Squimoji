@@ -9,7 +9,9 @@ I tweet new emoji made for this project, [@squimoji](https://twitter.com/squimoj
 ## Hooks
 
 pre-commit and post-commit hooks can be found in /meta/hooks.
-These hooks help assure color compliance with the Twemoji set, and auto-build pngs
+
+These hooks help assure color compliance with the Twemoji set, and auto-build .pngs
+
 To enable these, a simple bash script can be added to .git/hooks, pointing to these files
 
 ## Attributions
