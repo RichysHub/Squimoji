@@ -84,3 +84,5 @@ if changed_characters:
         subprocess.call(["git", "add", out_path])
     # commit our changes as an amendment
     subprocess.call(["git", "commit", "-amend" "--no-verify"])
+
+os.remove(".commit")

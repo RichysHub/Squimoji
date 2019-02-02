@@ -19,10 +19,10 @@ except subprocess.CalledProcessError:
 with open(".commit", 'w') as commit_changes:
     commit_changes.write(commit_text)
 
-with open("../palette.json", "r") as palette:
+with open("./meta/palette.json", "r") as palette:
     valid_colors = set(json.load(palette))
 
-with open("files_by_color.json", "r") as files_by_color_input:
+with open("./meta/files_by_color.json", "r") as files_by_color_input:
     files_by_color = json.load(files_by_color_input)
 
 color_regex = "#[\da-fA-f]+"
