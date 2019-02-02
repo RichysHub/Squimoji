@@ -4,7 +4,7 @@ A collection of emoji, reimagined as squid.
 
 ![](/72x72/1f991.png) ![](/72x72/1f60e.png) ![](/72x72/1f344.png) ![](/72x72/1f921.png)
 
-I tweet new emoji made for this project, [@squimoji](https://twitter.com/squimoji) <a href="https://twitter.com/squimoji?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @squimoji</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+I tweet new emoji made for this project, [@squimoji](https://twitter.com/squimoji) [![Follow @squimoji](http://i.imgur.com/wWzX9uB.png)](https://twitter.com/squimoji?ref_src=twsrc%5Etfw)
 
 ## Hooks
 
