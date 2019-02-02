@@ -9,7 +9,7 @@ print("Checking staged files for color compliance")
 
 try:
     # Get files in staging area:
-    commit_text = subprocess.check_output(["git", "status", "--porcelain", "-uno", "-z"],
+    commit_text = subprocess.check_output(["git", "status", "--porcelain", "-uno"],
                                           stderr=subprocess.STDOUT).decode("utf-8")
 except subprocess.CalledProcessError:
     print("Error calling git status in pre-commit hook")

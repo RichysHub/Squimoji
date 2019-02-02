@@ -9,7 +9,7 @@ Not intended to be bulletproof, should just cover day-to-day building
 
 try:
     with open(".commit", 'r') as commit_changes:
-        file_list = commit_changes.readlines()
+        file_list = [line.rstrip() for line in commit_changes]
 except FileNotFoundError:
     # if there is no .commit file, we early out
     sys.exit(0)
@@ -28,7 +28,6 @@ for file_entry in file_list:
     # X is status of the index
     index_status = file_entry[0]
     filename = file_entry[3:]
-
     # approach:
     # work through images changes, listing them as needing fixes
     # work through svgs, updating said fixes
@@ -45,7 +44,7 @@ for file_entry in file_list:
             to_remove.add(to_character(filename))
         elif index_status == "R":
             # renamed image, need to rebuild both
-            new_name, old_name = filename.split('\00')
+            old_name, new_name = filename.split('->')
             to_build.add(to_character(old_name))
             to_build.add(to_character(new_name))
 
@@ -53,16 +52,14 @@ for file_entry in file_list:
         if index_status in ["M", "A"]:
             # modified or added get images built
             to_build.add(to_character(filename))
-            pass
         elif index_status == "R":
-            new_name, old_name = filename.split('\00')
+            old_name, new_name = filename.split('->')
             # file renamed. remove old, rebuild new
             to_build.add(to_character(new_name))
             to_remove.add(to_character(old_name))
         elif index_status == "D":
             # file deleted, remove image
             to_remove.add(to_character(filename))
-
 
 for character in to_remove:
     print("Removing {}.png".format(character))
@@ -73,7 +70,10 @@ for character in to_build:
     in_path = "./svg/{}.svg".format(character)
     out_path = "./72x72/{}.png".format(character)
     subprocess.call([inkscape_executable, in_path,
-                     '--export-png={}'.format(out_path)])
+                     '--export-png={}'.format(out_path),
+                     '--export-width=72', "--export-height=72"])
+
+os.remove(".commit")
 
 changed_characters = to_remove.union(to_build)
 # if we actually made any changes
@@ -83,6 +83,5 @@ if changed_characters:
         out_path = "./72x72/{}.png".format(character)
         subprocess.call(["git", "add", out_path])
     # commit our changes as an amendment
-    subprocess.call(["git", "commit", "-amend" "--no-verify"])
+    subprocess.call(["git", "commit", "--amend", "--no-verify"])
 
-os.remove(".commit")
