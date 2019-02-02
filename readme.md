@@ -27,4 +27,5 @@ Copyright 2019 Richard Spencer
 I want these images to be used and enjoyed, so I license my modifications, and original graphic work under the same license as the original content.
 
 Code licensed under MIT
+
 Graphics licensed under CC-BY 4.0: https://creativecommons.org/licenses/by/4.0/
