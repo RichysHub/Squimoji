@@ -1,1 +1,3 @@
-meta/
+
+# ignore constructed tweet images
+meta/twitter/*.png
