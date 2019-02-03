@@ -23,6 +23,9 @@ def to_character(filename):
     return os.path.splitext(os.path.basename(filename))[0]
 
 
+to_build = set()  # images we need to build
+to_remove = set()  # images we need to remove
+
 for file_entry in file_list:
     # format of lines is 'XY filename'
     # X is status of the index
@@ -32,8 +35,6 @@ for file_entry in file_list:
     # work through images changes, listing them as needing fixes
     # work through svgs, updating said fixes
     # make fixes
-    to_build = set()  # images we need to build
-    to_remove = set()  # images we need to remove
 
     if filename.endswith(".png") and filename.startswith("72x72/"):
         if index_status in ["D", "M"]:
