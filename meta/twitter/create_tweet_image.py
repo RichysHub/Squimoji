@@ -5,7 +5,7 @@ import os
 import sys
 
 template_path = "./tweet_template.svg"
-svg_directory = "../svg/"
+svg_directory = "../../svg/"
 out_directory = os.path.dirname(sys.argv[0]) + "/"
 inkscape_executable = "C:/Program Files/Inkscape/inkscape.exe"
 
@@ -45,10 +45,11 @@ def create_tweet_image(character_name, background_color_override=None, text_colo
     subprocess.call([inkscape_executable, temp_svg.name,
                      '--export-png={}'.format(out_path)])
 
-    os.unlink(temp_svg.name)
+    # os.unlink(temp_svg.name)
 
-emojis = ["1f634"]
-colors = [None]
+emojis = ["1f0cf"]
+# don't forget #s
+colors = ["#9266CC"]
 text_colors = [None]
 for emoji, color, text_color in zip(emojis, colors, text_colors):
     create_tweet_image(emoji, color, text_color)
